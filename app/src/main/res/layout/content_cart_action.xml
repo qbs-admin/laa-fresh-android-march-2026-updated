@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvCart"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="@dimen/spacing_normal"
+    android:layout_marginEnd="@dimen/spacing_normal"
+    android:layout_marginBottom="@dimen/spacing_normal"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    app:cardBackgroundColor="@color/purple_500"
+    app:cardCornerRadius="@dimen/spacing_small"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCartCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingStart="@dimen/spacing_normal"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_18" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/ivActionCartImage"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingEnd="@dimen/spacing_normal"
+            android:text="@string/view_cart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_18" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivActionCartImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:paddingTop="@dimen/margin_4"
+            android:paddingEnd="@dimen/spacing_normal"
+            android:src="@drawable/ic_action_cart" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+

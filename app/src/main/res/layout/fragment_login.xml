@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.favorite.FavoriteFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolFLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center"
+        app:title="Sign In"
+        app:navigationIcon="@drawable/ic_back"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:background="@color/purple_500"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingPrefix">
+    </androidx.appcompat.widget.Toolbar>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_normal">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tvYourName"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/spacing_20dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_user_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etfEmailId"
+                    style="@style/EditText"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    tools:text="" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFirstName"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                app:passwordToggleEnabled="true"
+                android:hint="@string/label_password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etfPassword"
+                    style="@style/EditText"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    tools:text="" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:padding="3dp"
+                android:text="@string/label_forgot_password"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="@string/label_login"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size_16"
+                app:cornerRadius="@dimen/spacing_medium" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/signup_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:gravity="end"
+                android:padding="3dp"
+                android:text="@string/label_sign_up"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <ProgressBar
+        android:id="@+id/pbfUserLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

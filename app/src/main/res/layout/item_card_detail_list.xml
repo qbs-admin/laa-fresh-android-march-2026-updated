@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_small"
+    android:layout_marginTop="@dimen/spacing_small"
+    android:orientation="horizontal"
+    android:layout_weight="2"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvItemListName"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="@dimen/size_14"
+        android:layout_weight="1.5"
+        android:maxLines="2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvItemListPrice"
+        android:textColor="@color/black"
+        android:layout_weight="0.1"
+        android:textSize="@dimen/size_14"
+        android:layout_marginStart="@dimen/margin_6"
+        android:fontFamily="@font/roboto_medium"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:layout_marginEnd="@dimen/margin_4"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

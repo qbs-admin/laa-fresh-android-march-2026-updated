@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.settings.SettingsFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbSettings"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/purple_500"
+        android:gravity="center"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/menu_settings"
+        tools:ignore="MissingPrefix" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbSettings">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/accountView">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout_address"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/contentProfile"
+                    layout="@layout/content_account_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tvReturnPolicy"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:background="@color/viewColor"/>
+
+                <include
+                    android:id="@+id/contentAddress"
+                    layout="@layout/content_account_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAddNewAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_address"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_circle"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center|start"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingEnd="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small"
+                android:text="@string/add_new_address"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/size_18" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/viewOne"
+                android:layout_below="@+id/tvAddNewAddress"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:background="@color/viewColor" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvReturnPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:layout_below="@+id/viewOne"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingEnd="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small"
+                android:text="@string/return_policy"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_18" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/viewTwo"
+                android:layout_below="@+id/tvReturnPolicy"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:background="@color/viewColor"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactUs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center|start"
+                android:layout_below="@+id/viewTwo"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingEnd="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small"
+                android:text="@string/faq"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_18" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/viewThree"
+                android:layout_below="@+id/tvContactUs"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:background="@color/viewColor"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAboutUs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center|start"
+                android:layout_below="@+id/viewThree"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingEnd="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small"
+                android:text="@string/label_about_us"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_18" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/viewFour"
+                android:layout_below="@+id/tvAboutUs"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:background="@color/viewColor"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center|start"
+                android:layout_below="@+id/viewFour"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingEnd="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small"
+                android:text="@string/label_privacy"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_18" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/viewFive"
+                android:layout_below="@+id/tvPrivacy"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:background="@color/viewColor"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center|start"
+                android:layout_below="@+id/viewFive"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingEnd="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small"
+                android:text="@string/logout"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_18" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/tvLogout"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:background="@color/viewColor"/>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+    <ProgressBar
+        android:id="@+id/pbSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

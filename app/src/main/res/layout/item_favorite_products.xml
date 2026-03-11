@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingTop="@dimen/margin_4"
+        android:paddingEnd="@dimen/spacing_normal"
+        android:paddingBottom="@dimen/margin_4">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvFProductImage"
+            android:layout_width="@dimen/spacing_100"
+            android:layout_height="@dimen/spacing_100"
+            android:layout_alignParentStart="true"
+            app:cardCornerRadius="@dimen/spacing_small"
+            app:cardElevation="@dimen/margin_4"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ProgressBar
+                    android:layout_width="@dimen/spacing_large"
+                    android:layout_height="@dimen/spacing_large"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/pbFProductItem"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivFProductImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+                <!-- <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_centerInParent="true">
+
+                     <com.like.LikeButton
+                         android:id="@+id/lkWishList"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:visibility="visible"
+                         app:like_drawable="@drawable/ic_favourite_filled"
+                         app:unlike_drawable="@drawable/ic_favourite_unfilled" />
+                 </LinearLayout>-->
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFCategoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_14"
+            android:layout_toStartOf="@+id/iv_cart_delete"
+            android:layout_toEndOf="@+id/cvFProductImage"
+            android:gravity="center|start"
+            android:paddingStart="@dimen/spacing_small"
+            android:text=""
+            android:textAllCaps="false"
+            android:textSize="@dimen/size_16" />
+        <ImageView
+            android:id="@+id/iv_cart_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@null"
+            android:padding="@dimen/margin_5"
+            android:src="@drawable/browser_close" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:id="@+id/linearFavPrice"
+            android:paddingStart="@dimen/spacing_small"
+            android:layout_toEndOf="@+id/cvFProductImage"
+            android:layout_below="@+id/tvFCategoryName"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFProductSpecialPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=""
+                android:paddingEnd="@dimen/margin_4"
+                android:textSize="@dimen/size_16"
+                android:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFProductPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=""
+                android:textSize="@dimen/size_16" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNextAvailable"
+            android:layout_width="@dimen/spacing_100"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/background_next_available"
+            android:gravity="center"
+            android:layout_below="@+id/linearFavPrice"
+            android:layout_alignParentEnd="true"
+            android:textSize="@dimen/size_10"
+            android:paddingStart="@dimen/margin_2"
+            android:paddingEnd="@dimen/margin_2"
+            android:paddingTop="@dimen/margin_2"
+            android:paddingBottom="@dimen/margin_2"
+
+            android:text="Next Available at 06:00 am"
+            android:textColor="@color/viewColor1"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearFavPrice"
+            android:layout_alignParentEnd="true"
+            android:gravity="center">
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearFavPrice"
+            android:layout_alignParentEnd="true"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFavNoStock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/margin_4"
+                android:text="out of Stock"
+                android:textColor="@color/bg_cart"
+                android:textSize="@dimen/size_18"
+                android:visibility="gone" />
+
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFavAddToCart"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/background_add_to_cart"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:padding="@dimen/margin_4"
+                android:text="Add to cart"
+                android:textColor="@color/purple_500"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/linearFavProductQty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvFavReduceProduct"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/background_minus_button"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@color/textTitle"
+                    android:textSize="@dimen/size_18" />
+
+                <TextView
+                    android:id="@+id/tvFavProductQty"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/textHeader"
+                    android:textSize="@dimen/size_18" />
+
+                <TextView
+                    android:id="@+id/tvFavAddProduct"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/background_add_button"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_18" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:background="@color/viewColor"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+
+

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "658774131222",
+    "project_id": "laafresh-d6be3",
+    "storage_bucket": "laafresh-d6be3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658774131222:android:e6969dd7da8db121da6b37",
+        "android_client_info": {
+          "package_name": "com.qbs.laafresh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658774131222-66u63flpq4g8dao0asj9h7bi1hd794b3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qbs.laafresh",
+            "certificate_hash": "aae5d8134a4ff3d343a74888b52762da65fc9585"
+          }
+        },
+        {
+          "client_id": "658774131222-ttadgec9ej7kiolhvmchk9teql6t81eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvVz6KOfu1BzJW0OCBvaeG7BGGK4ntYe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658774131222-ttadgec9ej7kiolhvmchk9teql6t81eo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

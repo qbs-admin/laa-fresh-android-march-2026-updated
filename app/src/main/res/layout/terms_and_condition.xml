@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeTerms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="WebViewLayout">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLabelTerms"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/purple_500"
+            android:fontFamily="@font/helvetica_regular"
+            android:gravity="center"
+            android:text="@string/label_terms_and_condition"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_16" />
+
+        <WebView
+            android:id="@+id/wvTermsCondition"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linearTermsCon"
+            android:layout_below="@+id/tvLabelTerms"
+
+            />
+
+        <ProgressBar
+            android:id="@+id/pbTermsCondition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:id="@+id/linearTermsCon"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/linearAcceptTerms"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="0.5"
+
+                android:background="?attr/selectableItemBackground">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:fontFamily="@font/helvetica_regular"
+                    android:gravity="center"
+                    android:text="@string/label_accept"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_16" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearCancelTerms"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="1dp"
+                android:layout_weight="0.5"
+                android:background="?attr/selectableItemBackground">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:fontFamily="@font/helvetica_regular"
+                    android:gravity="center"
+                    android:text="@string/label_cancel"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_16" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
