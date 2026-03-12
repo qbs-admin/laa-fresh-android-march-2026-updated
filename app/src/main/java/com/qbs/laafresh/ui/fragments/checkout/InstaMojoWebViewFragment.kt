@@ -47,11 +47,19 @@ class InstaMojoWebViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.tbWebView) { v, insets ->
-            val statusBar = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-            v.setPadding(0, statusBar, 0, 0)
+//        ViewCompat.setOnApplyWindowInsetsListener(binding.tbWebView) { v, insets ->
+//            val statusBar = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+//            v.setPadding(0, statusBar, 0, 0)
+//            insets
+//        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            v.setPadding(0, 0, 0, bottomInset)
             insets
         }
+
+
 
         db = LaaFreshDB.getInstance(context = requireContext())?.laaFreshDAO()
         url = arguments?.getString("url", "")!!

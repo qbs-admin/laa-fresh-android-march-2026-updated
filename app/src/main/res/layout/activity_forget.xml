@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbDashboard"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="86dp"
         android:gravity="center"
         app:title="@string/app_name"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"

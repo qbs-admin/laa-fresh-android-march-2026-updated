@@ -16,6 +16,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
+        android:padding="29dp"
         app:contentInsetStartWithNavigation="0dp"
         app:title="@string/check_out" />
 

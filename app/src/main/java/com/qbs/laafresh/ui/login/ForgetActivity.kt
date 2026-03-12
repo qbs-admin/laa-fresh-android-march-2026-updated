@@ -5,7 +5,12 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+
 import com.qbs.laafresh.R
 import com.qbs.laafresh.data.viewmodel.VMRegister
 import com.qbs.laafresh.databinding.ActivityForgetBinding
@@ -25,9 +30,21 @@ class ForgetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityForgetBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.tbDashboard) { v, insets ->
+            val statusBar = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            v.setPadding(0, statusBar, 0, 0)
+            insets
+        }
+
+        binding.tbDashboard.setNavigationOnClickListener {
+            finish()
+        }
+
         binding.sendButton.setOnClickListener {
             forgotPasswordFieldValidation()
         }
+
     }
 
     private fun forgotPasswordFieldValidation() {

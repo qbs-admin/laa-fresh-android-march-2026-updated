@@ -11,6 +11,7 @@
         android:layout_height="86dp"
         android:gravity="center"
         app:title="@string/menu_myCart"
+        android:padding="29dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
