@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbCart"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="86dp"
         android:background="@color/purple_500"
         android:gravity="center"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"

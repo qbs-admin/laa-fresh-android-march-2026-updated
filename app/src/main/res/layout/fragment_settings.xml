@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbSettings"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="86dp"
         android:background="@color/purple_500"
         android:gravity="center"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -19,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/menu_settings"
+        android:paddingStart="16dp"
         tools:ignore="MissingPrefix" />
 
     <androidx.core.widget.NestedScrollView

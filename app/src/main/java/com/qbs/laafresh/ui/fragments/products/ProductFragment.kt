@@ -21,6 +21,8 @@ import com.qbs.laafresh.databinding.FragmentProductBinding
 import com.qbs.laafresh.ui.adapter.ProductAdapter
 import com.qbs.laafresh.ui.extension.isConnected
 import com.qbs.laafresh.ui.extension.toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class ProductFragment : Fragment() {
     private lateinit var binding: FragmentProductBinding
@@ -48,6 +50,30 @@ class ProductFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //nav overwrite issue
+        ViewCompat.setOnApplyWindowInsetsListener(binding.rvProduct) { v, insets ->
+            val navBarHeight = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            v.setPadding(0, 0, 0, navBarHeight)
+            insets
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.tbProducts) { v, insets ->
+            val statusBar = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            v.setPadding(0, statusBar, 0, 0)
+            insets
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.contentProductCartView.root) { v, insets ->
+            val bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+
+            val params = v.layoutParams as ViewGroup.MarginLayoutParams
+            params.bottomMargin = bottomInset + resources.getDimensionPixelSize(R.dimen.spacing_normal)
+            v.layoutParams = params
+
+            insets
+        }
+
+
         db = LaaFreshDB.getInstance(context = requireContext())?.laaFreshDAO()
         val bundle = this.arguments
         if (bundle != null)
@@ -77,6 +103,7 @@ class ProductFragment : Fragment() {
 
         var count = db?.getAllCartCount()
         if (count!! > 0) {
+
             binding.contentProductCartView.root.visibility = View.VISIBLE
             binding.contentProductCartView.tvCartCount.text = "Items- ${count}"
             binding.contentProductCartView.root.setOnClickListener {

@@ -68,8 +68,6 @@ class ProductRepository(
                 val response = iProductApi.getIndividualProduct(productDetailRequest).await()
                 if (response.isSuccessful) {
                     response.body()?.let {
-
-
 //                        iPref.setIsLoggedIn(true)
                         withContext(Dispatchers.Main) { onSuccess(it) }
                     }

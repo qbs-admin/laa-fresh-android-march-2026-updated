@@ -24,6 +24,9 @@ class DashBoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
         navController = Navigation.findNavController(this, R.id.dashboardNavHost)
         binding.bottomNav.setupWithNavController(navController)
         binding.bottomNav.selectedItemId = R.id.homeFragment

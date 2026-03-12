@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -45,6 +47,20 @@ class AddingToCartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //nav overwrite issue
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val navBarHeight = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            v.setPadding(0, 0, 0, navBarHeight)
+            insets
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.tbProductsDetails) { v, insets ->
+            val statusBar = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            v.setPadding(0, statusBar, 0, 0)
+            insets
+        }
+
         binding.addLinearProductQty.visibility = View.VISIBLE
         db = LaaFreshDB.getInstance(context = requireContext())?.laaFreshDAO()
         val bundle = this.arguments

@@ -17,6 +17,8 @@ import android.view.ViewGroup
 import android.webkit.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
@@ -44,6 +46,13 @@ class InstaMojoWebViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.tbWebView) { v, insets ->
+            val statusBar = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            v.setPadding(0, statusBar, 0, 0)
+            insets
+        }
+
         db = LaaFreshDB.getInstance(context = requireContext())?.laaFreshDAO()
         url = arguments?.getString("url", "")!!
         // url = "https://www.instamojo.com/@lavenderwhite665/edda2b03d2c649efb9b7ff0ed16f9a6b"

@@ -8,7 +8,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbCart"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="86dp"
         android:gravity="center"
         app:title="@string/menu_myCart"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
