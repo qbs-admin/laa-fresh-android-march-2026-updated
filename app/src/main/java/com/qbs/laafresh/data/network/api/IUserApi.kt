@@ -42,6 +42,5 @@ interface IUserApi {
         const val MINI_ORDER: String = "isminimumorder.php"
         const val PRODUCT: String = "products.php"
         const val FOOTER_BANNER: String = "banner.php"
-
     }
 }
