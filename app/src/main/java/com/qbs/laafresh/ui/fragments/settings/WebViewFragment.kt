@@ -3,6 +3,7 @@ package com.qbs.laafresh.ui.fragments.settings
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +42,7 @@ class WebViewFragment : Fragment() {
             showLoading(false)
         }
 
+        Log.e("TAG","------ INSTA")
     }
 
     private fun initAppBar() {

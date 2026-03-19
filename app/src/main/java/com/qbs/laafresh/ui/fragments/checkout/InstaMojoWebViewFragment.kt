@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,12 +48,6 @@ class InstaMojoWebViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        ViewCompat.setOnApplyWindowInsetsListener(binding.tbWebView) { v, insets ->
-//            val statusBar = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-//            v.setPadding(0, statusBar, 0, 0)
-//            insets
-//        }
-
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
             v.setPadding(0, 0, 0, bottomInset)
@@ -65,12 +60,55 @@ class InstaMojoWebViewFragment : Fragment() {
         url = arguments?.getString("url", "")!!
         // url = "https://www.instamojo.com/@lavenderwhite665/edda2b03d2c649efb9b7ff0ed16f9a6b"
 
+        Log.e("TAG","------ INSTA")
+        Log.e("TAG",url.toString())
+
         mTitle = arguments?.getString("title", "")!!
         initAppBar()
         if (isConnected(requireActivity())) {
             showLoading(true)
             //  initWebView()
-            binding.webViewFragment.setWebChromeClient(WebChromeClient())
+            binding.webViewFragment.webChromeClient = object : WebChromeClient() {
+
+                override fun onCreateWindow(
+                    view: android.webkit.WebView?,
+                    isDialog: Boolean,
+                    isUserGesture: Boolean,
+                    resultMsg: android.os.Message?
+                ): Boolean {
+
+                    val newWebView = android.webkit.WebView(view?.context!!)
+
+                    newWebView.webViewClient = object : WebViewClient() {
+                        override fun shouldOverrideUrlLoading(
+                            view: android.webkit.WebView?,
+                            request: WebResourceRequest?
+                        ): Boolean {
+
+                            val url = request?.url.toString()
+                            Log.e("POPUP_URL>>>", url)
+
+                            if (url.startsWith("upi://") || url.startsWith("intent://")) {
+                                try {
+                                    val intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
+                                    startActivity(intent)
+                                    return true
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
+
+                            return false
+                        }
+                    }
+
+                    val transport = resultMsg?.obj as WebView.WebViewTransport
+                    transport.webView = newWebView
+                    resultMsg.sendToTarget()
+
+                    return true
+                }
+            }
             webHandling()
         } else {
             showLoading(false)
@@ -93,7 +131,7 @@ class InstaMojoWebViewFragment : Fragment() {
         binding.apply {
             webViewFragment.settings.loadWithOverviewMode = true
 
-            webViewFragment.webViewClient = WebView()
+            webViewFragment.webViewClient = MyWebViewClient()
             webViewFragment.setInitialScale(100)
             webViewFragment.clearCache(true)
             webViewFragment.clearHistory()
@@ -180,30 +218,37 @@ class InstaMojoWebViewFragment : Fragment() {
         }
     }
 
-    inner class WebView : WebViewClient() {
+    inner class MyWebViewClient : WebViewClient() {
 
         override fun shouldOverrideUrlLoading(
             view: android.webkit.WebView?,
-            url: String?
+            request: WebResourceRequest?
         ): Boolean {
-            showLoading(false)
-            val uri = Uri.parse(url)
-            url?.let { Log.e("url>>>>", it) }
-            view?.loadUrl(url.toString())
-            if (url?.contains("paymentredirect.php")!!) {
-//                view?.stopLoading()
+
+            val url = request?.url.toString()
+            Log.e("URL_NEW>>>", url)
+
+            if (url.contains("paymentredirect.php")) {
                 parseAndDisplayData(url)
                 return false
             }
-            /*if (url?.contains("mc_secure")!!) {
-              *//*  view?.stopLoading()
-                paymentFailed(true)*//*
-              //  view?.loadUrl(url);
-               val intent =  Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent)
-                return true
 
-            }*/
+            if (url.startsWith("upi://") || url.startsWith("intent://")) {
+                try {
+                    val intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
+                    startActivity(intent)
+                    return true
+                } catch (e: Exception) {
+                    try {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                        startActivity(intent)
+                        return true
+                    } catch (ex: Exception) {
+                        ex.printStackTrace()
+                    }
+                }
+            }
+
             return false
         }
 

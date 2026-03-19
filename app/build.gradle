@@ -38,8 +38,9 @@ android {
             resValue "string", "app_name", "LaaFresh"
             buildConfigField 'String', 'BASE_URL', '"https://laafresh.com/app/"'
         }
+
         prod {
-            versionCode 14
+            versionCode 19
             versionName "1.0.0"
             dimension "environment"
             resValue "string", "app_name", "LaaFresh"
